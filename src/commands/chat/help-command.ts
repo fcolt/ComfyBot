@@ -38,6 +38,12 @@ export class HelpCommand implements Command {
               Lang.getRef('chatCommands.info', Language.Default)
             )
           ),
+          CMD_LINK_TEXT_TO_IMAGE: FormatUtils.commandMention(
+            await ClientUtils.findAppCommand(
+              intr.client,
+              Lang.getRef('chatCommands.text-to-image', Language.Default)
+            )
+          ),
         });
         break;
       }

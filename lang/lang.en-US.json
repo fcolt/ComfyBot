@@ -36,7 +36,8 @@
                             "To see the available commands, just type `/` and select the bot from the left side. You can then scroll through all available commands. Some commands may be hidden if you don't have permission to view them.",
                             "",
                             "{{CMD_LINK_TEST}} - {{REF:commandDescs.test}}",
-                            "{{CMD_LINK_INFO}} - {{REF:commandDescs.info}}"
+                            "{{CMD_LINK_INFO}} - {{REF:commandDescs.info}}",
+                            "{{CMD_LINK_TEXT_TO_IMAGE}} - {{REF:commandDescs.text-to-image}}"
                         ]
                     },
                     {
@@ -212,7 +213,7 @@
             "help": "Find help or contact support.",
             "info": "View bot info.",
             "test": "Run the test command.",
-            "text-to-image": "Generate an image from a text prompt"
+            "text-to-image": "Generate an image from a text prompt. A model can be chosen optionally (defaults to Stable Diffusion XL Turbo)."
         },
         "argDescs": {
             "devCommand": "Command.",

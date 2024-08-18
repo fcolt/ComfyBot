@@ -1,6 +1,8 @@
 import { REST } from '@discordjs/rest';
+import { ComfyUIClient } from 'comfy-ui-client';
 import { Options, Partials } from 'discord.js';
 import { createRequire } from 'node:module';
+import { v4 as uuidv4 } from 'uuid';
 
 import { Button } from './buttons/index.js';
 import {
@@ -59,6 +61,8 @@ async function start(): Promise<void> {
     }),
   });
 
+  const comfyClient = new ComfyUIClient(Config.comfyUI.serverAddress, uuidv4());
+
   // Commands
   let commands: Command[] = [
     // Chat Commands
@@ -66,7 +70,7 @@ async function start(): Promise<void> {
     new HelpCommand(),
     new InfoCommand(),
     new TestCommand(),
-    new TextToImageCommand(),
+    new TextToImageCommand(comfyClient),
 
     // Message Context Commands
     new ViewDateSent(),

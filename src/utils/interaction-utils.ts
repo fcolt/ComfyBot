@@ -1,6 +1,8 @@
 import {
   ApplicationCommandOptionChoiceData,
+  AttachmentBuilder,
   AutocompleteInteraction,
+  BaseMessageOptions,
   CommandInteraction,
   DiscordAPIError,
   RESTJSONErrorCodes as DiscordApiErrors,
@@ -75,7 +77,7 @@ export class InteractionUtils {
         typeof content === 'string'
           ? { content }
           : content instanceof EmbedBuilder
-            ? { embeds: [content] }
+            ? this.getEmbedOptions(content)
             : content;
       if (intr.deferred || intr.replied) {
         return await intr.followUp({
@@ -130,7 +132,7 @@ export class InteractionUtils {
         typeof content === 'string'
           ? { content }
           : content instanceof EmbedBuilder
-            ? { embeds: [content] }
+            ? this.getEmbedOptions(content)
             : content;
       return await intr.editReply(options);
     } catch (error) {
@@ -155,7 +157,7 @@ export class InteractionUtils {
         typeof content === 'string'
           ? { content }
           : content instanceof EmbedBuilder
-            ? { embeds: [content] }
+            ? this.getEmbedOptions(content)
             : content;
       return await intr.update({
         ...options,
@@ -172,5 +174,19 @@ export class InteractionUtils {
         throw error;
       }
     }
+  }
+
+  private static getEmbedOptions(content: EmbedBuilder): BaseMessageOptions {
+    const messageOptions: BaseMessageOptions = {
+      embeds: [content],
+    };
+    const imgUrl = content.data?.image?.url;
+    if (imgUrl?.includes('attachment://')) {
+      return {
+        ...messageOptions,
+        files: [imgUrl.substring(imgUrl.indexOf('attachment://') + 13)],
+      };
+    }
+    return messageOptions;
   }
 }

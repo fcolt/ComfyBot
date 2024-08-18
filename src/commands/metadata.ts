@@ -69,6 +69,25 @@ export const ChatCommandMetadata: {
     dm_permission: true,
     default_member_permissions: undefined,
   },
+  TEXT_TO_IMAGE: {
+    type: ApplicationCommandType.ChatInput,
+    name: Lang.getRef('chatCommands.text-to-image', Language.Default),
+    name_localizations: Lang.getRefLocalizationMap('chatCommands.text-to-image'),
+    description: Lang.getRef('commandDescs.text-to-image', Language.Default),
+    description_localizations: Lang.getRefLocalizationMap('commandDescs.text-to-image'),
+    dm_permission: true,
+    default_member_permissions: undefined,
+    options: [
+      {
+        ...Args.TEXT_TO_IMAGE_PROMPT,
+        required: true,
+      },
+      {
+        ...Args.TEXT_TO_IMAGE_MODEL,
+        required: false,
+      },
+    ],
+  },
 };
 
 export const MessageCommandMetadata: {

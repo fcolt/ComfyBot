@@ -13,7 +13,11 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true
+    },
+    "ts-node": {
+        "esm": true
     },
     "exclude": ["dist", "node_modules", "tests"]
 }

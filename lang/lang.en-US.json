@@ -36,7 +36,8 @@
                             "To see the available commands, just type `/` and select the bot from the left side. You can then scroll through all available commands. Some commands may be hidden if you don't have permission to view them.",
                             "",
                             "{{CMD_LINK_TEST}} - {{REF:commandDescs.test}}",
-                            "{{CMD_LINK_INFO}} - {{REF:commandDescs.info}}"
+                            "{{CMD_LINK_INFO}} - {{REF:commandDescs.info}}",
+                            "{{CMD_LINK_TEXT_TO_IMAGE}} - {{REF:commandDescs.text-to-image}}"
                         ]
                     },
                     {
@@ -192,7 +193,8 @@
             "dev": "dev",
             "help": "help",
             "info": "info",
-            "test": "test"
+            "test": "test",
+            "text-to-image": "text-to-image"
         },
         "userCommands": {
             "viewDateJoined": "View Date Joined"
@@ -202,18 +204,23 @@
         },
         "arguments": {
             "command": "command",
-            "option": "option"
+            "option": "option",
+            "model": "model",
+            "prompt": "prompt"
         },
         "commandDescs": {
             "dev": "Developer use only.",
             "help": "Find help or contact support.",
             "info": "View bot info.",
-            "test": "Run the test command."
+            "test": "Run the test command.",
+            "text-to-image": "Generate an image from a text prompt. A model can be chosen optionally (defaults to Stable Diffusion XL Turbo)."
         },
         "argDescs": {
             "devCommand": "Command.",
             "helpOption": "Option.",
-            "infoOption": "Option."
+            "infoOption": "Option.",
+            "textToImageModel": "Choose the model to generate the image with.",
+            "textToImagePrompt": "Enter your prompt."
         },
         "fields": {
             "commands": "Commands",
@@ -284,6 +291,10 @@
         "infoOptions": {
             "about": "About",
             "translate": "Translate"
+        },
+        "textToImageModels": {
+            "flux": "Flux",
+            "sdxl_turbo": "Stable Diffusion XL Turbo"
         },
         "yesNo": {
             "yes": "Yes",

@@ -1,6 +1,6 @@
 import { APIApplicationCommandBasicOption, ApplicationCommandOptionType } from 'discord.js';
 
-import { DevCommandName, HelpOption, InfoOption } from '../enums/index.js';
+import { DevCommandName, HelpOption, InfoOption, TextToImageModel } from '../enums/index.js';
 import { Language } from '../models/enum-helpers/index.js';
 import { Lang } from '../services/index.js';
 
@@ -56,5 +56,31 @@ export class Args {
         value: InfoOption.TRANSLATE,
       },
     ],
+  };
+  public static readonly TEXT_TO_IMAGE_MODEL: APIApplicationCommandBasicOption = {
+    name: Lang.getRef('arguments.model', Language.Default),
+    name_localizations: Lang.getRefLocalizationMap('arguments.model'),
+    description: Lang.getRef('argDescs.textToImageModel', Language.Default),
+    description_localizations: Lang.getRefLocalizationMap('argDescs.textToImageModel'),
+    type: ApplicationCommandOptionType.String,
+    choices: [
+      {
+        name: Lang.getRef('textToImageModels.flux', Language.Default),
+        name_localizations: Lang.getRefLocalizationMap('textToImageModels.flux'),
+        value: TextToImageModel.FLUX,
+      },
+      {
+        name: Lang.getRef('textToImageModels.flux', Language.Default),
+        name_localizations: Lang.getRefLocalizationMap('textToImageModels.sdxl_turbo'),
+        value: TextToImageModel.SDXL_TURBO,
+      },
+    ],
+  };
+  public static readonly TEXT_TO_IMAGE_PROMPT: APIApplicationCommandBasicOption = {
+    name: Lang.getRef('arguments.prompt', Language.Default),
+    name_localizations: Lang.getRefLocalizationMap('arguments.prompt'),
+    description: Lang.getRef('argDescs.textToImagePrompt', Language.Default),
+    description_localizations: Lang.getRefLocalizationMap('argDescs.textToImagePrompt'),
+    type: ApplicationCommandOptionType.String,
   };
 }

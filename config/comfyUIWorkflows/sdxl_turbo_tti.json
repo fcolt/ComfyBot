@@ -107,7 +107,7 @@
   },
   "22": {
     "inputs": {
-      "steps": 1,
+      "steps": 4,
       "denoise": 1,
       "model": [
         "20",

@@ -45,7 +45,7 @@ export class TextToImageCommand implements Command {
     }
 
     await this.comfyClient.connect();
-    
+
     const imageResponse = await this.comfyClient.getImages(prompt);
     const files = [];
 
@@ -63,6 +63,7 @@ export class TextToImageCommand implements Command {
             name: intr.user.displayName,
           },
           title: args.prompt,
+          description: `Generated with ${args.model ?? 'Stable Diffusion XL Turbo'}`
         }),
       ],
       files: files,

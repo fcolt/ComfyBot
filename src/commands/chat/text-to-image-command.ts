@@ -31,7 +31,6 @@ export class TextToImageCommand implements Command {
       ) as TextToImageModel,
     };
 
-    await this.comfyClient.connect();
     let prompt = {};
 
     switch (args.model) {
@@ -45,6 +44,8 @@ export class TextToImageCommand implements Command {
         break;
     }
 
+    await this.comfyClient.connect();
+    
     const imageResponse = await this.comfyClient.getImages(prompt);
     const files = [];
 
